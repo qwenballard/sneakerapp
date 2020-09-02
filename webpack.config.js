@@ -1,18 +1,21 @@
 var path = require('path');
 
 module.exports = {
-  entry: "./client/app.js",
+  entry: "./client/index.js",
   mode: "development",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "dist"),
   },
   devServer: {
-    publicPath: "/build/",
+    publicPath: "/dist/",
     proxy: {
       "/": "http://localhost:3000",
+      "secure": false,
+      "changeOrigin": true
     },
     hot: true,
+    port: 8080
   },
   module: {
     rules: [

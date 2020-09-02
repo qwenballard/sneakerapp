@@ -4,7 +4,8 @@
   "description": "A sneaker wishlist",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --hot & nodemon src/server.js"
   },
   "keywords": [
     "sneakers",
@@ -15,6 +16,7 @@
   "author": "Qwen Ballard",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "nodemon": "^2.0.4",
