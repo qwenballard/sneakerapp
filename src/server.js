@@ -3,7 +3,6 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 
 // const cookieParser = require("cookie-parser");
-// postgres://ynsexszd:noSPD_3-duKzULOAOw0mCzEfOiuVs9dC@lallah.db.elephantsql.com:5432/ynsexszd
 
 const app = express();
 const PORT = 3000;
