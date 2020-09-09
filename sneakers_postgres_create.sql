@@ -30,8 +30,8 @@ CREATE TABLE wishlist (
 	"image_url" text,
 	"small_imageurl" text,
 	"thumb_url" text,
-	CONSTRAINT "wishlist_pk" PRIMARY KEY ("_id"),
-    FOREIGN KEY (user_id) REFERENCES users(_id)
+	PRIMARY KEY ("_id"),
+    FOREIGN KEY ("user_id") REFERENCES users("_id")
 );
 
 -- drop table 

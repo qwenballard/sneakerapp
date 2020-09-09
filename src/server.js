@@ -1,17 +1,19 @@
 const path = require("path");
 const express = require("express");
 const cookieParser = require("cookie-parser");
-
-// const cookieParser = require("cookie-parser");
+const bodyParse = require("body-parser"); // <-- needed because I have an older version of express
 
 const app = express();
 const PORT = 3000;
 const cors = require("cors");
+const bodyParser = require("body-parser");
+const { urlencoded } = require("body-parser");
 
 // app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
 app.use(cors());
 app.use(express.json()); // --> Same as body parser
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "../client/index.html"));
