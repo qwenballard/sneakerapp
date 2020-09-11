@@ -30,7 +30,7 @@ CREATE TABLE wishlist (
 	"image_url" text,
 	"small_imageurl" text,
 	"thumb_url" text,
-	PRIMARY KEY ("_id"),
+	CONSTRAINT "wishlist_pk" PRIMARY KEY ("_id"),
     FOREIGN KEY ("user_id") REFERENCES users("_id")
 );
 

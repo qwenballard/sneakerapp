@@ -7,18 +7,45 @@ const app = express();
 const PORT = 3000;
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const { urlencoded } = require("body-parser");
 
 // app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
 app.use(cors());
 app.use(express.json()); // --> Same as body parser
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('assets'));
 
 app.get("/", (req, res) => {
+    //won't let you do anything if you aren't logged in
     res.sendFile(path.resolve(__dirname, "../client/index.html"));
 });
 
+app.post("/login", (req, res) => {
+    //redirect you back to the home page with your login name showing
+});
+
+app.post("/search", (req, res) => {
+    //hits middlewear routes to display sneakers back on the home page???
+});
+
+
+/*Routes need to be added
+
+/login/sign Up
+
+/home
+
+/profile/wishlist
+/profile/setting
+
+/search
+
+*/
+
+// HANDLING UNKNOWN URLS
+app.use('*', (req, res) => {
+  res.status(404).send('URL path not found');
+});
 
 //catch all router handlers
 app.use((req, res) => {

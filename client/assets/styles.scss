@@ -1,0 +1,22 @@
+.hero {
+    margin-bottom: 10px;
+}
+
+.search-bar {
+    text-align: center;
+    position: relative;
+}
+
+.control.has-icons-left .input, .control.has-icons-left .select select {
+    padding-left: 2.5em;
+    width: 50%;
+}
+
+.fa, .fas {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    margin-top: 12;
+    left: 30px;
+    z-index: 5;
+    position: relative;
+}
