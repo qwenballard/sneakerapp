@@ -6,20 +6,20 @@ console.log('test')
 //=======================================================================================================
 //Create User
 queries.addUser = `
-INSERT INTO users (username, first_name, last_name, password, favorite_shoe, gender)
-VALUES ($1, $2, $3, $4, $5, $6)
+INSERT INTO users (username, email, first_name, last_name, password, favorite_shoe, gender)
+VALUES ($1, $2, $3, $4, $5, $6, $7)
 RETURNING username
 `;
 
 //test data
-// INSERT INTO users(username, first_name, last_name, password, favorite_shoe, gender)
-// VALUES('qwen.ballard@gmail.com', 'Qwen', 'Ballard', 'test', 'Air Jordan "True Blue" 3''s', 'men')
+// INSERT INTO users(username, email, first_name, last_name, password, favorite_shoe, gender)
+// VALUES('mqb0021', 'qwen.ballard@gmail.com', 'Qwen', 'Ballard', 'test', 'Air Jordan "True Blue" 3''s', 'men')
 
 
-// let addQwen = ['qwen.ballard@gmail.com', 'Qwen', 'Ballard', 'test', 'Air Jordan "True Blue" 3s', 'men'];
+// let addQwen = ['mqb0021', 'qwen.ballard@gmail.com', 'Qwen', 'Ballard', 'test', 'Air Jordan "True Blue" 3s', 'men'];
 // db.query(queries.addUser, addQwen).then(data => console.log(data.rows));
 
-// let addMeron = ['meron@gmail.com', 'Meron', 'Habtemariam', 'test', 'Black Classic Vans', 'women'];
+// let addMeron = ['mahabtem', 'meron@gmail.com', 'Meron', 'Habtemariam', 'test', 'Black Classic Vans', 'women'];
 // db.query(queries.addUser, addMeron).then(data => console.log(data.rows));
 
 //=======================================================================================================

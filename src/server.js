@@ -8,6 +8,8 @@ const PORT = 3000;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const authController = require('./controllers/authController');
+
 // app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
 app.use(cors());
 app.use(express.json()); // --> Same as body parser
@@ -15,13 +17,15 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('assets'));
 
-app.get("/", (req, res) => {
+//logged in method needs to be written
+app.get("/", authController.loggedIn,(req, res) => {
     //won't let you do anything if you aren't logged in
     res.sendFile(path.resolve(__dirname, "../client/index.html"));
 });
 
-app.post("/login", (req, res) => {
+app.post("/login", authController.verifyUser, authController.setCookie, (req, res) => {
     //redirect you back to the home page with your login name showing
+    res.redirect("/");
 });
 
 app.post("/search", (req, res) => {
@@ -52,16 +56,16 @@ app.use((req, res) => {
     console.log("catch-all route handler is working");
 });
 
-app.use((err, req, res, next) => {
-    const defaultErr = {
-        log: "Express error handler caught unknown middleware error",
-        status: 400,
-        message: { err: "An error occurred" },
-    };
-    const errorObj = Object.assign({}, defaultErr, err);
-    console.log(errorObj.log);
-    res.status(errorObj.status).json(errorObj.message);
-});
+// app.use((err, req, res, next) => {
+//     const defaultErr = {
+//         log: "Express error handler caught unknown middleware error",
+//         status: 400,
+//         message: { err: "An error occurred" },
+//     };
+//     const errorObj = Object.assign({}, defaultErr, err);
+//     console.log(errorObj.log);
+//     res.status(errorObj.status).json(errorObj.message);
+// });
 
 //server is listening
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));

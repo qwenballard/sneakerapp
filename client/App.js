@@ -17,7 +17,7 @@ function App() {
     <React.Fragment>
       <Router>
         <div>
-          <nav class="navbar" role="navigation" aria-label="main navigation">
+          <nav class="navbar container" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
               <a class="navbar-item" href="https://bulma.io"></a>
 

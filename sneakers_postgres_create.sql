@@ -4,13 +4,15 @@
 CREATE TABLE users (
     "_id" SERIAL NOT NULL,
 	"username" varchar NOT NULL,
+	"email" varchar NOT NULL,
     "first_name" varchar NOT NULL,
 	"last_name" varchar NOT NULL,
 	"password" varchar NOT NULL,
 	"favorite_shoe" varchar,
 	"gender" varchar,
 	CONSTRAINT "users_pk" PRIMARY KEY ("_id"),
-	CONSTRAINT "username" UNIQUE ("username")
+	CONSTRAINT "username" UNIQUE ("username"),
+	CONSTRAINT "email" UNIQUE ("email")
 );
 
 CREATE TABLE wishlist (
