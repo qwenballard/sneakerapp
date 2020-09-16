@@ -1,12 +1,11 @@
 const path = require("path");
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const bodyParse = require("body-parser"); // <-- needed because I have an older version of express
+const bodyParser = require("body-parser"); // <-- needed because I have an older version of express
 
 const app = express();
 const PORT = 3000;
 const cors = require("cors");
-const bodyParser = require("body-parser");
 
 const authController = require('./controllers/authController');
 
@@ -17,18 +16,19 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('assets'));
 
+
 //logged in method needs to be written
-app.get("/", authController.loggedIn,(req, res) => {
+app.get("/", (req, res) => {
     //won't let you do anything if you aren't logged in
     res.sendFile(path.resolve(__dirname, "../client/index.html"));
 });
 
-app.post("/login", authController.verifyUser, authController.setCookie, (req, res) => {
+app.post("/login", authController.loginUser, authController.setCookie, (req, res) => {
     //redirect you back to the home page with your login name showing
     res.redirect("/");
 });
 
-app.post("/search", (req, res) => {
+app.post("/wishlist", (req, res) => {
     //hits middlewear routes to display sneakers back on the home page???
 });
 

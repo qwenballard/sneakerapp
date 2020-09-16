@@ -73,4 +73,11 @@ ON wishlist.user_id = users._id
 ;
 `;
 
+//=======================================================================================================
+// Verify User
+
+// queries.verifyUser = `SELECT password, _id FROM users WHERE email=$1`; 
+
+
+
 module.exports = queries;
