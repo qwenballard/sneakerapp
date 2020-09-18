@@ -1,10 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
 function Home(props){
+  const [sneakers, setSneakers] = useState([]);
 
+  useEffect(() => {
+    fetch('https://api.thesneakerdatabase.com/v1/sneakers?limit=25&releaseYear=2020')
+    .then(res => res.json())
+    .then((data) => setSneakers(data.results))
+    .catch(err => console.log(err));
+  }, []);
   //implement useState & useEffect to get shoes upon loading the page
   //https://api.thesneakerdatabase.com/v1/sneakers?limit=25&releaseYear=2020
   
+    console.log(sneakers);
+    
     return (
       <div>
         <div>
