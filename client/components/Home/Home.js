@@ -1,10 +1,13 @@
 import React, { Component, useState, useEffect } from 'react';
+import { v4 as uuidv4 } from "uuid";
+
+import Sneaker from './Sneaker'
 
 function Home(props){
   const [sneakers, setSneakers] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.thesneakerdatabase.com/v1/sneakers?limit=25&releaseYear=2020')
+    fetch('https://api.thesneakerdatabase.com/v1/sneakers?limit=10&releaseYear=2020')
     .then(res => res.json())
     .then((data) => setSneakers(data.results))
     .catch(err => console.log(err));
@@ -12,8 +15,10 @@ function Home(props){
   //implement useState & useEffect to get shoes upon loading the page
   //https://api.thesneakerdatabase.com/v1/sneakers?limit=25&releaseYear=2020
   
-    console.log(sneakers);
-    
+    const showSneakers = sneakers.map((sneaker) => {
+      return <Sneaker key={uuidv4()} data={sneaker} />
+    })
+
     return (
       <div>
         <div>
@@ -38,6 +43,7 @@ function Home(props){
             ></input>
           </p>
         </div>
+        { showSneakers }
       </div>
     );
 }
