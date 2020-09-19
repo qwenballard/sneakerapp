@@ -5,6 +5,11 @@ import Sneaker from './Sneaker'
 
 function Home(props){
   const [sneakers, setSneakers] = useState([]);
+  const [search, setSearch] = useState('');
+
+  // handleChange = () => {
+
+  // }
 
   useEffect(() => {
     fetch('https://api.thesneakerdatabase.com/v1/sneakers?limit=10&releaseYear=2020')
@@ -35,15 +40,19 @@ function Home(props){
         <div class="field search-bar">
           <p class="control has-icons-left">
             <i class="fas fa-search"></i>
-
             <input
               class="input"
               type="text"
               placeholder="Search for sneaker by name"
+              // onChange={handleChange}
+              value={search}
             ></input>
           </p>
         </div>
-        { showSneakers }
+        
+        <div class="sneaker-container">
+          { showSneakers }
+        </div>
       </div>
     );
 }
