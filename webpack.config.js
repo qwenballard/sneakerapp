@@ -11,11 +11,11 @@ module.exports = {
     publicPath: "/dist/",
     proxy: {
       "/": "http://localhost:3000",
-      "secure": false,
-      "changeOrigin": true
+      secure: false,
+      changeOrigin: true,
     },
     hot: true,
-    port: 8080
+    port: 8080,
   },
   module: {
     rules: [
@@ -28,6 +28,20 @@ module.exports = {
             presets: ["@babel/preset-env", "@babel/preset-react"],
           },
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
       },
       {
         test: /\.s[ac]ss$/i,

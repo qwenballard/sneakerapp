@@ -14,23 +14,25 @@ app.use(cors());
 app.use(express.json()); // --> Same as body parser
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static('assets'));
+app.use(express.static(path.join(__dirname, "../client/assets")));
 
 
 //logged in method needs to be written
 app.get("/", (req, res) => {
-    //won't let you do anything if you aren't logged in
-    res.sendFile(path.resolve(__dirname, "../client/index.html"));
+  //won't let you do anything if you aren't logged in
+  res.sendFile(path.resolve(__dirname, "../client/index.html"),);
 });
+
+app.get('/login', authController.isLoggedIn);
 
 app.post("/login", authController.loginUser, authController.setCookie, (req, res) => {
     //redirect you back to the home page with your login name showing
     res.redirect("/");
 });
 
-app.post("/wishlist", (req, res) => {
-    //hits middlewear routes to display sneakers back on the home page???
-});
+// app.post("/wishlist", authController.isLoggedIn, (req, res) => {
+//   //hits middlewear routes to display sneakers back on the home page???
+// });
 
 
 /*Routes need to be added

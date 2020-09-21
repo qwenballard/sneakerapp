@@ -1,11 +1,11 @@
+const e = require('express');
 const db = require('../models/models');
 const authController = {};
 
 authController.loginUser = async (req, res, next) => {
+    console.log('login user controller');
     try {
         const { email, password } = req.body;
-        // console.log(req.body);
-        // console.log('cookies', req.cookies)
 
         if (!email || !password) {
           return next(
@@ -23,7 +23,11 @@ authController.loginUser = async (req, res, next) => {
         }
 
         if(password === data.rows[0].password){
+            const foundUser = data.rows[0];
+            res.locals.user = foundUser;
             return next();
+        } else {
+          return res.status(403).json('unsuccessful login attempt');
         }
     } catch(err) {
         next({
@@ -35,22 +39,38 @@ authController.loginUser = async (req, res, next) => {
 };
 
 authController.setCookie = (req, res, next) => {
-    let randomNumber = Math.floor(Math.random() * 100000000);
+  const { user } = res.locals;
+  // console.log(user);
+  // console.log(user._id);
 
-    //600000 is 10 minutes
-    res.cookie("token", randomNumber, { httpOnly: true, maxAge: 600000 });
-    console.log(res.cookie);
-    return next();
+  //600000 is 10 minutes
+  res.cookie("token", user._id, { httpOnly: true, maxAge: 600000 });
+  return next();
 };
 
-authController.isLoggedIn = (req, res, next) => {
-    const { token } = request.cookies;
-    console.log(token);
+authController.isLoggedIn = async (req, res, next) => {
+    try {
 
-    if(!req.cookies){
-        res.redirect('/login');
+      const { token } = req.cookies;
+
+      if (!token) {
+        return next();
+      } else {
+        let useToken = [token];
+        const findUser = `SELECT email, favorite_shoe, first_name, last_name, gender, username FROM users WHERE _id=$1`;
+        const data = await db.query(findUser, useToken);
+
+        const foundUser = data.rows[0];
+        res.locals.user = foundUser;
+        return res.status(200).json(res.locals.user);
+      }
+    } catch(err){
+       next({
+            log: 'auntController.isLoggedIn express error handler caught unknown middleware error',
+            status: 400,
+            message: { err: "An error occurred" }
+        });
     }
-    return next();
 };
 
 

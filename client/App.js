@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './assets/styles.scss';
 
@@ -12,12 +12,35 @@ import Wishlist from './components/Wishlist/Wishlist';
 
 
 function App() {
+  const [authorized, setAuthorization] = useState(false);
+  const [user, setUser] = useState({});
+
+  const isLoggedIn = () => {
+     fetch("/login")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if(Object.keys(data).length !== 0){
+          setUser(data);
+          setAuthorization(true);
+        }
+      })
+      .catch(err => console.log(err));
+  }
+
+  useEffect(() => {
+    isLoggedIn();
+  }, []);
 
   return (
     <React.Fragment>
       <Router>
         <div>
-          <nav class="navbar container" role="navigation" aria-label="main navigation">
+          <nav
+            class="navbar container"
+            role="navigation"
+            aria-label="main navigation"
+          >
             <div class="navbar-brand">
               <a class="navbar-item" href="https://bulma.io"></a>
 
@@ -55,29 +78,25 @@ function App() {
                     <a class="navbar-item">
                       <Link to="/profile/settings">My Account</Link>
                     </a>
-                    <a class="navbar-item">
-                        Log Out
-                    </a>
+                    <a class="navbar-item">Log Out</a>
                   </div>
                 </div>
               </div>
             </div>
           </nav>
 
-          
-
           <Switch>
             <Route exact path="/profile/wishlist">
-              <Wishlist />
+              <Wishlist {...user} authorized={authorized} />
             </Route>
             <Route exact path="/profile/settings">
-              <Settings />
+              <Settings {...user} authorized={authorized} />
             </Route>
             <Route exact path="/login">
               <Login />
             </Route>
             <Route exact path="/">
-              <Home />
+              <Home {...user} authorized={authorized} />
             </Route>
           </Switch>
         </div>

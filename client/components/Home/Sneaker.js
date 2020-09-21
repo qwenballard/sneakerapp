@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 
 
 const Sneaker = (props) => {
-    // console.log(props.data);
+
     const { media, title, retailPrice, year } = props.data;
 
     const showSneakerImage = (media.imageUrl !== null ? media.imageUrl : `https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg`);
-    console.log(showSneakerImage);
  return (
    <div className="card">
      <header class="card-header">

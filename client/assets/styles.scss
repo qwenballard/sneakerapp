@@ -12,7 +12,13 @@
 //Home Page Component
 /*========================================*/
 //Hero
-.hero {
+.sneaker-hero {
+    width: 70%;
+    height: auto;
+}
+
+.sneaker-hero-section {
+    text-align: center;
     margin-bottom: 10px;
 }
 
@@ -20,6 +26,10 @@
 .search-bar {
     text-align: center;
     position: relative;
+}
+
+.search-button {
+    margin-top: 10px;
 }
 
 .control.has-icons-left .input, .control.has-icons-left .select select {
@@ -62,8 +72,6 @@
     left: 0px;
     margin: 0px;
 }
-
-
 
 .sneaker-add {
     margin-left: 10px;
