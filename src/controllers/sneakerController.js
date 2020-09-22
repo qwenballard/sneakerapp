@@ -11,10 +11,9 @@ const userId = [req.cookies.token];
 //redo
 const getUserWishlist = `SELECT sneaker_id, brand, colorway, wishlist.gender, name, release_date, release_price, title, year, image_url 
 FROM wishlist
-LEFT JOIN users
-ON wishlist.user_id = $1;`;
+WHERE wishlist.user_id =${userId};`;
 
-const data = await db.query(getUserWishlist, userId);
+const data = await db.query(getUserWishlist);
 res.locals.wishlist = data.rows;
 console.log(data.rows);
 return res.status(200).json(res.locals.wishlist);

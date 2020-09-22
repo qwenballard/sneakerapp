@@ -1,7 +1,8 @@
 -- PostgresQL database table creation
+--gender needs to be not null
 
 --example below 
-CREATE TABLE users (
+CREATE TABLE public.users (
     "_id" serial NOT NULL,
 	"username" varchar NOT NULL,
 	"email" varchar NOT NULL,
@@ -13,10 +14,13 @@ CREATE TABLE users (
 	CONSTRAINT "users_pk" PRIMARY KEY ("_id"),
 	CONSTRAINT "username" UNIQUE ("username"),
 	CONSTRAINT "email" UNIQUE ("email")
+)
+WITH (
+	OIDS=FALSE
 );
 
-CREATE TABLE wishlist (
-    "_id" serial NOT NULL,
+CREATE TABLE public.wishlist (
+	"_id" serial NOT NULL,
 	"user_id" bigint NOT NULL,
 	"sneaker_id" varchar NOT NULL,
 	"brand" varchar,
@@ -33,7 +37,10 @@ CREATE TABLE wishlist (
 	"small_imageurl" text,
 	"thumb_url" text,
 	CONSTRAINT "wishlist_pk" PRIMARY KEY ("_id"),
-    FOREIGN KEY (user_id) REFERENCES users(_id)
+    FOREIGN KEY (user_id) REFERENCES public.users(_id)
+)
+WITH (
+	OIDS=FALSE
 );
 
 -- drop table 
