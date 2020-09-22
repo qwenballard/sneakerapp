@@ -24,18 +24,18 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/index.html"),);
 });
 
+//App.js is triggering this route and sending back user data if logged in and showing hidden pages
 app.get('/login', authController.isLoggedIn);
 
 app.post("/login", authController.loginUser, authController.setCookie, (req, res) => {
-    //redirect you back to the home page with your login name showing
     res.redirect("/");
 });
 
-app.get('/profile/wishlist', sneakerController.retrieveWishlist);
+app.post("/signup", authController.createUser, authController.setCookie, (req, res) => {
+  res.redirect('/');
+});
 
-// app.post("/wishlist", authController.isLoggedIn, (req, res) => {
-//   //hits middlewear routes to display sneakers back on the home page???
-// });
+app.get('/profile/wishlist', sneakerController.retrieveWishlist);
 
 
 // HANDLING UNKNOWN URLS

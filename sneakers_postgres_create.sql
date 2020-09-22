@@ -1,5 +1,4 @@
 -- PostgresQL database table creation
---gender needs to be not null
 
 --example below 
 CREATE TABLE public.users (

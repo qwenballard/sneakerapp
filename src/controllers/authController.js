@@ -38,16 +38,6 @@ authController.loginUser = async (req, res, next) => {
     }
 };
 
-authController.setCookie = (req, res, next) => {
-  const { user } = res.locals;
-  // console.log(user);
-  // console.log(user._id);
-
-  //600000 is 10 minutes
-  res.cookie("token", user._id, { httpOnly: true, maxAge: 600000 });
-  return next();
-};
-
 authController.isLoggedIn = async (req, res, next) => {
     try {
 
@@ -73,6 +63,48 @@ authController.isLoggedIn = async (req, res, next) => {
     }
 };
 
+authController.createUser = async (req, res, next) => {
+  try {
+    let values = [
+      req.body.username,
+      req.body.email,
+      req.body.first_name,
+      req.body.last_name,
+      req.body.password,
+      req.body.favorite_shoe,
+      req.body.gender,
+    ];
+
+    const createUser = `
+    INSERT INTO users (username, email, first_name, last_name, password, favorite_shoe, gender)
+    VALUES ($1, $2, $3, $4, $5, $6, $7)
+    RETURNING _id
+    `;
+
+    const newUser = await db.query(createUser, values);
+
+    res.locals.user = newUser.rows[0];
+    return next();
+  } catch(err){
+    next({
+      log:
+        "auntController.createUser express error handler caught unknown middleware error",
+      status: 400,
+      message: { err: "An error occurred" },
+    });
+  }
+};
+
+authController.setCookie = (req, res, next) => {
+  console.log('in cookie');
+  const { user } = res.locals;
+  // console.log(user);
+  // console.log(user._id);
+
+  //600000 is 10 minutes
+  res.cookie("token", user._id, { httpOnly: true, maxAge: 600000 });
+  return next();
+};
 
 
 module.exports = authController;

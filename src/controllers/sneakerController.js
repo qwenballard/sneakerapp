@@ -8,7 +8,6 @@ sneakerController.retrieveWishlist = async (req, res, next) => {
     const { token } = req.cookies;
 
 const userId = [req.cookies.token];
-//redo
 const getUserWishlist = `SELECT sneaker_id, brand, colorway, wishlist.gender, name, release_date, release_price, title, year, image_url 
 FROM wishlist
 WHERE wishlist.user_id =${userId};`;

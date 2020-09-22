@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 function Login(props) {
     return (
       <div>
-        {/* create user
-        <form action="/login" method="POST">
+        Create Account
+        <form action="/signup" method="POST">
           <input type="text" name="username" placeholder="Enter Username" required />
           <input type="email" name="email" placeholder="Enter Email" required />
           <input type="text" name="first_name" placeholder="Enter First Name" required />
@@ -20,7 +20,8 @@ function Login(props) {
             Women
             <input type="radio" name="gender" id="women" value="women" />
           </label>
-        </form> */}
+          <button type="submit">Submit</button>
+        </form>
 
         <form action="/login" method="POST">
           <input type="email" name="email" placeholder="Enter Email" required />
