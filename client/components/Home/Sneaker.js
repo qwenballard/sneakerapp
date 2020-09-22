@@ -26,10 +26,6 @@ const Sneaker = (props) => {
          <i class="fas fa-plus"></i>
          <span className="sneaker-add">Add</span>
        </a>
-       <a href="#" class="card-footer-item">
-         <i class="fas fa-minus"></i>
-         <span className="sneaker-add">Delete</span>
-       </a>
      </footer>
    </div>
  );   

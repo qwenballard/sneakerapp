@@ -19,7 +19,7 @@ function App() {
      fetch("/login")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if(Object.keys(data).length !== 0){
           setUser(data);
           setAuthorization(true);
@@ -32,58 +32,94 @@ function App() {
     isLoggedIn();
   }, []);
 
+  const isAuthorized = !authorized ? (
+    //Navbar that hides the wishlist and profile components and links
+    <nav
+      class="navbar container"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io"></a>
+
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item">
+            <Link to="/">Home</Link>
+          </a>
+
+          <a class="navbar-item">
+            <Link to="/login">Login/Sign Up</Link>
+          </a>
+        </div>
+      </div>
+    </nav>
+  ) : (
+    //Navbar that shows the wishlist and profile components and links
+    <nav
+      class="navbar container"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io"></a>
+
+        <a
+          role="button"
+          class="navbar-burger burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item">
+            <Link to="/">Home</Link>
+          </a>
+
+          <a class="navbar-item">
+            <Link to="/profile/wishlist">Wishlist</Link>
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Settings</a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                <Link to="/profile/settings">My Account</Link>
+              </a>
+              <a class="navbar-item">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+
   return (
     <React.Fragment>
       <Router>
         <div>
-          <nav
-            class="navbar container"
-            role="navigation"
-            aria-label="main navigation"
-          >
-            <div class="navbar-brand">
-              <a class="navbar-item" href="https://bulma.io"></a>
-
-              <a
-                role="button"
-                class="navbar-burger burger"
-                aria-label="menu"
-                aria-expanded="false"
-                data-target="navbarBasicExample"
-              >
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-              </a>
-            </div>
-
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-end">
-                <a class="navbar-item">
-                  <Link to="/">Home</Link>
-                </a>
-
-                <a class="navbar-item">
-                  <Link to="/login">Login/Sign Up</Link>
-                </a>
-
-                <a class="navbar-item">
-                  <Link to="/profile/wishlist">Wishlist</Link>
-                </a>
-
-                <div class="navbar-item has-dropdown is-hoverable">
-                  <a class="navbar-link">Settings</a>
-
-                  <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                      <Link to="/profile/settings">My Account</Link>
-                    </a>
-                    <a class="navbar-item">Log Out</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </nav>
+          { isAuthorized }
 
           <Switch>
             <Route exact path="/profile/wishlist">

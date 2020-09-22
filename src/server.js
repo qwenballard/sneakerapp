@@ -8,6 +8,7 @@ const PORT = 3000;
 const cors = require("cors");
 
 const authController = require('./controllers/authController');
+const sneakerController = require('./controllers/sneakerController');
 
 // app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
 app.use(cors());
@@ -30,23 +31,12 @@ app.post("/login", authController.loginUser, authController.setCookie, (req, res
     res.redirect("/");
 });
 
+app.get('/profile/wishlist', sneakerController.retrieveWishlist);
+
 // app.post("/wishlist", authController.isLoggedIn, (req, res) => {
 //   //hits middlewear routes to display sneakers back on the home page???
 // });
 
-
-/*Routes need to be added
-
-/login/sign Up
-
-/home
-
-/profile/wishlist
-/profile/setting
-
-/search
-
-*/
 
 // HANDLING UNKNOWN URLS
 app.use('*', (req, res) => {

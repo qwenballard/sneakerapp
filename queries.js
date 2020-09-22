@@ -15,6 +15,11 @@ RETURNING username
 // INSERT INTO users(username, email, first_name, last_name, password, favorite_shoe, gender)
 // VALUES('mqb0021', 'qwen.ballard@gmail.com', 'Qwen', 'Ballard', 'test', 'Air Jordan "True Blue" 3''s', 'men')
 
+// const addUser = async () => {
+//   let addQwen = ['mqb0021', 'qwen.ballard@gmail.com', 'Qwen', 'Ballard', 'test', 'Air Jordan "True Blue" 3s', 'men'];
+//   await db.query(queries.addUser, addQwen).then(data => console.log(data.rows));
+// }
+// addUser();
 
 // let addQwen = ['mqb0021', 'qwen.ballard@gmail.com', 'Qwen', 'Ballard', 'test', 'Air Jordan "True Blue" 3s', 'men'];
 // db.query(queries.addUser, addQwen).then(data => console.log(data.rows));
@@ -40,13 +45,22 @@ RETURNING name
 //     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=100&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052'
 // )
 
+// const addSneaker = async () => {
+//   let addSneakerOne = [1, 'b80ff5b5-98ab-40ff-a58c-83f6962fe8aa', 'Nike', 'White/White', 'men', 'White 07', '', 90, 'Nike Air Force 1 Low', '315122-111', 'Nike Air Force 1 Low White 07', 0,
+//     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052',
+//     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052',
+//     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=100&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052'
+//   ];
+//   await db.query(queries.addSneaker, addSneakerOne).then(data => console.log(data.rows));
+// }
+// addSneaker();
 
-// let addSneakerOne = [1, 'b80ff5b5-98ab-40ff-a58c-83f6962fe8aa', 'Nike', 'White/White', 'men', 'White 07', '', 90, 'Nike Air Force 1 Low', '315122-111', 'Nike Air Force 1 Low White 07', 0,
-//     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052', 
-//     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052', 
-//     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=100&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052'];
+// let addSneakerOne = [1, 'b80ff5b5-98ab-40ff-a58c-83f6962fe8aa', 'Nike', 'White/White', 'men', 'White ''07', '', 90, 'Nike Air Force 1 Low', '315122-111', 'Nike Air Force 1 Low White ''07', 0,
+//     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052',
+//     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052',
+//     'https://stockx.imgix.net/Nike-Air-Force-1-Low-White-07-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=100&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1561409052'
+// ];
 // db.query(queries.addSneaker, addSneakerOne).then(data => console.log(data.rows));
-
 
 //test data - sneaker two
 // INSERT INTO wishlist (user_id, sneaker_id, brand, colorway, gender, name, release_date, release_price, shoe_name, style_id, title, year, image_url, small_imageurl, thumb_url)
@@ -55,6 +69,8 @@ RETURNING name
 // 'https://stockx.imgix.net/Nike-Air-Fear-Of-God-1-Black-Product.jpg?fit=fill&bg=FFFFFF&w=300&h=214&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1544563859',
 // 'https://stockx.imgix.net/Nike-Air-Fear-Of-God-1-Black-Product.jpg?fit=fill&bg=FFFFFF&w=140&h=100&auto=format,compress&trim=color&q=90&dpr=2&updated_at=1544563859'
 // )
+
+
 
 
 // let addSneakerTwo = [1, 'd3c7f86c-050c-4607-95f7-15dc4efd32ec', 'Nike', 'Black/Black', 'men', 'Black', '2018-12-15 23:59:59', 395, 'Nike Air Fear Of God 1', 'AR4237-001', 'Nike Air Fear Of God 1 Black', 2018,

@@ -2,7 +2,7 @@
 
 --example below 
 CREATE TABLE users (
-    "_id" SERIAL NOT NULL,
+    "_id" serial NOT NULL,
 	"username" varchar NOT NULL,
 	"email" varchar NOT NULL,
     "first_name" varchar NOT NULL,
@@ -16,8 +16,8 @@ CREATE TABLE users (
 );
 
 CREATE TABLE wishlist (
-    "_id" SERIAL NOT NULL,
-	"user_id" int NOT NULL,
+    "_id" serial NOT NULL,
+	"user_id" bigint NOT NULL,
 	"sneaker_id" varchar NOT NULL,
 	"brand" varchar,
 	"colorway" varchar,
@@ -33,7 +33,7 @@ CREATE TABLE wishlist (
 	"small_imageurl" text,
 	"thumb_url" text,
 	CONSTRAINT "wishlist_pk" PRIMARY KEY ("_id"),
-    FOREIGN KEY ("user_id") REFERENCES users("_id")
+    FOREIGN KEY (user_id) REFERENCES users(_id)
 );
 
 -- drop table 
