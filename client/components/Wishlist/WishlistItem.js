@@ -1,13 +1,14 @@
 import React, { Component, useState, useEffect } from 'react';
 
 function WishlistItem(props){
-    const { title, image_url, release_price, year, gender } = props.data;
-    console.log(props);
+  const { deleteSneaker } = props;
+    const { sneaker_id, title, image_url, release_price, year, gender } = props.data;
+    console.log(sneaker_id);
     return (
       <div className="card">
         <header class="card-header">
           <p class="card-header-title">
-            { title } - { year } - { gender }
+            {title} - {year} - {gender}
           </p>
         </header>
         <div class="card-content">
@@ -15,10 +16,12 @@ function WishlistItem(props){
             <img className="sneaker-image" src={image_url} alt={title} />
             <br></br>
             <br></br>
-    <p style={{ textAlign: "center" }}>Retail Price: ${ release_price }</p>
+            <p style={{ textAlign: "center" }}>
+              Retail Price: ${release_price}
+            </p>
           </div>
         </div>
-        <footer class="card-footer">
+        <footer class="card-footer" onClick={() => deleteSneaker(sneaker_id)}>
           <a href="#" class="card-footer-item">
             <i class="fas fa-minus"></i>
             <span className="sneaker-add">Delete</span>

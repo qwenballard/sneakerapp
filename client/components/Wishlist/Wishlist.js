@@ -16,9 +16,20 @@ function Wishlist(props) {
        .catch((err) => console.log(err));
   }
 
+      const deleteSneaker = (sneaker_id) => {
+        fetch(`http://localhost:8080/deletesneaker/${sneaker_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data))
+          .catch((err) => console.log(err));
+      };
+
   useEffect(() => {
     setTimeout(retreiveWishlist, 300)
-  }, [false]);
+  }, [], [wishlist]);
+
+  //make wishlist refresh once an item is deleted. Or hide the item
 
   return (
     <div>
@@ -26,7 +37,7 @@ function Wishlist(props) {
       { wishlist.length === 0 ? <p>no shoes</p> : 
         <div>
           {wishlist.map((sneaker) => {
-            return <WishlistItem key={uuidv4()} data={sneaker} />;
+            return <WishlistItem key={uuidv4()} data={sneaker} deleteSneaker={deleteSneaker} />;
           })}
         </div>
       }

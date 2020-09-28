@@ -9,12 +9,13 @@ const cors = require("cors");
 
 const authController = require('./controllers/authController');
 const sneakerController = require('./controllers/sneakerController');
+const { isLoggedIn } = require("./controllers/authController");
 
-// app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
-app.use(cors());
-app.use(express.json()); // --> Same as body parser
+app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
+// app.use(express.json()); // --> Same as body parser
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../client/assets")));
 
 
@@ -23,6 +24,8 @@ app.get("/", (req, res) => {
   //won't let you do anything if you aren't logged in
   res.sendFile(path.resolve(__dirname, "../client/index.html"),);
 });
+
+app.get("/profile/wishlist", sneakerController.retrieveWishlist);
 
 //App.js is triggering this route and sending back user data if logged in and showing hidden pages
 app.get('/login', authController.isLoggedIn);
@@ -35,7 +38,14 @@ app.post("/signup", authController.createUser, authController.setCookie, (req, r
   res.redirect('/');
 });
 
-app.get('/profile/wishlist', sneakerController.retrieveWishlist);
+app.post("/addsneaker", sneakerController.addSneaker, (req, res) => {
+  res.status(200).json("sneaker added");
+});
+
+app.delete("/deletesneaker/:sneakerId", sneakerController.deleteSneaker, (req, res) => {
+  res.status(200).json("sneaker deleted");
+});
+
 
 
 // HANDLING UNKNOWN URLS

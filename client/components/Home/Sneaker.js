@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 
 const Sneaker = (props) => {
-
-    const { media, title, retailPrice, year } = props.data;
+    const { addSneaker } = props;
+    const { id, media, title, retailPrice, year } = props.data;
 
     const showSneakerImage = (media.imageUrl !== null ? media.imageUrl : `https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg`);
  return (
@@ -21,7 +21,7 @@ const Sneaker = (props) => {
          <p style={{ textAlign: "center" }}>Retail Price: ${retailPrice}</p>
        </div>
      </div>
-     <footer class="card-footer">
+     <footer class="card-footer" onClick={() => addSneaker(id)}>
        <a href="#" class="card-footer-item">
          <i class="fas fa-plus"></i>
          <span className="sneaker-add">Add</span>

@@ -90,10 +90,12 @@ ON wishlist.user_id = users._id
 `;
 
 //=======================================================================================================
-// Verify User
+//Delete sneaker for a specific user
+// const deleteSneaker = `DELETE FROM wishlist
+//     WHERE sneaker_id = '2be6bea7-77a2-414c-b213-ac4d0585f278'
+//     AND user_id = 2;`;
 
-// queries.verifyUser = `SELECT password, _id FROM users WHERE email=$1`; 
-
+// db.query(deleteSneaker).then((data) => console.log(data.rows));
 
 
 module.exports = queries;

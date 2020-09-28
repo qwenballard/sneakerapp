@@ -22,6 +22,20 @@ function Home(props){
     .catch(err => console.log(err));
   }
 
+  const addSneaker  = (id) => {
+    let created = { sneakerId: id }
+    fetch(`http://localhost:8080/addsneaker`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(created)
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  }
+
   useEffect(() => {
     fetch('https://api.thesneakerdatabase.com/v1/sneakers?limit=10&releaseYear=2020')
     .then(res => res.json())
@@ -34,7 +48,7 @@ function Home(props){
   }, [sneakers]);
   
     const showSneakers = sneakers.map((sneaker) => {
-      return <Sneaker key={uuidv4()} data={sneaker} />
+      return <Sneaker key={uuidv4()} data={sneaker} addSneaker={addSneaker} />
     })
 
     const heroImage = `https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80`;
