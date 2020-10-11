@@ -1,33 +1,32 @@
-var path = require('path');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./client/index.js",
-  mode: "development",
+  entry: path.resolve("./client/index.js"),
+  mode: process.env.NODE_ENV,
   output: {
     filename: "bundle.js",
+    publicPath: "/dist/",
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
     publicPath: "/dist/",
     proxy: {
       "/": "http://localhost:3000",
-      secure: false,
-      changeOrigin: true,
     },
     hot: true,
-    port: 8080,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
-          },
-        },
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env', '@babel/preset-react']
+					}
+				}
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -45,6 +44,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
+        exclude: /node_modules/,
         use: [
           // Creates `style` nodes from JS strings
           "style-loader",
@@ -55,5 +55,13 @@ module.exports = {
         ],
       },
     ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./client/index.html",
+    }),
+  ],
+  resolve: {
+    extensions: [".js", ".jsx"],
   },
 };

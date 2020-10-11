@@ -5,7 +5,7 @@ function WishlistItem(props){
     const { sneaker_id, title, image_url, release_price, year, gender } = props.data;
     console.log(sneaker_id);
     return (
-      <div className="card">
+      <div className={"card"}>
         <header class="card-header">
           <p class="card-header-title">
             {title} - {year} - {gender}
@@ -21,7 +21,12 @@ function WishlistItem(props){
             </p>
           </div>
         </div>
-        <footer class="card-footer" onClick={() => deleteSneaker(sneaker_id)}>
+        <footer
+          class="card-footer"
+          onClick={(e) => {
+            deleteSneaker(sneaker_id)
+          }}
+        >
           <a href="#" class="card-footer-item">
             <i class="fas fa-minus"></i>
             <span className="sneaker-add">Delete</span>

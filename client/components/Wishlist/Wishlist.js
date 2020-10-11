@@ -1,11 +1,10 @@
 import React, { Component, useState, useEffect } from 'react';
-import WishlistItem from '../Wishlist/WishlistItem';
+import WishlistItem from './WishlistItem.js';
 import { v4 as uuidv4 } from "uuid";
 
 function Wishlist(props) {
   const [user, setUser] = useState(props);
   const [wishlist, setWishlist] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const retreiveWishlist = () => {
      fetch("/profile/wishlist")
@@ -23,24 +22,35 @@ function Wishlist(props) {
           .then((res) => res.json())
           .then((data) => console.log(data))
           .catch((err) => console.log(err));
+
+          const newWishList = wishlist.filter((sneaker) => sneaker.sneaker_id !== sneaker_id);
+          setWishlist(newWishList);
       };
 
   useEffect(() => {
     setTimeout(retreiveWishlist, 300)
-  }, [], [wishlist]);
+  }, []);
 
   //make wishlist refresh once an item is deleted. Or hide the item
 
   return (
     <div>
       <p>{user.first_name}'s Wishlist</p>
-      { wishlist.length === 0 ? <p>no shoes</p> : 
-        <div>
+      {wishlist.length === 0 ? (
+        <p>no shoes</p>
+      ) : (
+        <div className="sneaker-container">
           {wishlist.map((sneaker) => {
-            return <WishlistItem key={uuidv4()} data={sneaker} deleteSneaker={deleteSneaker} />;
+            return (
+              <WishlistItem
+                key={uuidv4()}
+                data={sneaker}
+                deleteSneaker={deleteSneaker}
+              />
+            );
           })}
         </div>
-      }
+      )}
     </div>
   );
 }

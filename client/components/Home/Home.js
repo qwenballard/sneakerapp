@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 //unable to retreive images from assets folder.
 // import heroImage from '../../assets/img/hero.jpeg';
 
-import Sneaker from './Sneaker';
+import Sneaker from './Sneaker.js';
 
 function Home(props){
   const [sneakers, setSneakers] = useState([]);
@@ -36,6 +36,7 @@ function Home(props){
       .catch((err) => console.log(err));
   }
 
+  //Initial Render to display recent shoes
   useEffect(() => {
     fetch('https://api.thesneakerdatabase.com/v1/sneakers?limit=10&releaseYear=2020')
     .then(res => res.json())
@@ -43,6 +44,7 @@ function Home(props){
     .catch(err => console.log(err));
   }, []);
 
+  //Updates list of sneakers based on search result
   useEffect(() => {
     setSearch("");
   }, [sneakers]);

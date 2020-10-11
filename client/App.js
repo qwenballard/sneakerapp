@@ -4,10 +4,10 @@ import './assets/styles.scss';
 
 
 
-import Home from './components/Home/Home';
-import Login from './components/Login/Login';
-import Settings from './components/Settings/Settings';
-import Wishlist from './components/Wishlist/Wishlist';
+import Home from './components/Home/Home.js';
+import Login from './components/Login/Login.js';
+import Settings from './components/Settings/Settings.js';
+import Wishlist from './components/Wishlist/Wishlist.js';
 
 
 
@@ -107,7 +107,8 @@ function App() {
               <a class="navbar-item">
                 <Link to="/profile/settings">My Account</Link>
               </a>
-              <a class="navbar-item">Log Out</a>
+              {/* Include this functionality later */}
+              {/* <a class="navbar-item">Log Out</a>*/}
             </div>
           </div>
         </div>
