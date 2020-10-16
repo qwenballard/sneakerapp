@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
 
 //unable to retreive images from assets folder.
-// import heroImage from '../../assets/img/hero.jpeg';
+import heroImage from '../../assets/img/hero.jpeg';
 
 import Sneaker from './Sneaker.js';
 
@@ -52,8 +52,6 @@ function Home(props){
     const showSneakers = sneakers.map((sneaker) => {
       return <Sneaker key={uuidv4()} data={sneaker} addSneaker={addSneaker} />
     })
-
-    const heroImage = `https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80`;
 
     return (
       <div>

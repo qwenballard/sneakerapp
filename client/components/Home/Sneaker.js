@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-
+import noImage  from '../../assets/img/no-image.jpg';
 
 const Sneaker = (props) => {
     const { addSneaker } = props;
-    const { id, media, title, retailPrice, year } = props.data;
+    const { id, media, title, retailPrice, year } = props.data; 
 
-    const showSneakerImage = (media.imageUrl !== null ? media.imageUrl : `https://cidco-smartcity.niua.org/wp-content/uploads/2017/08/No-image-found.jpg`);
+    const showSneakerImage = (media.imageUrl !== null ? media.imageUrl : noImage );
  return (
    <div className="card">
      <header class="card-header">

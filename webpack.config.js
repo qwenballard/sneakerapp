@@ -6,15 +6,16 @@ module.exports = {
   mode: process.env.NODE_ENV,
   output: {
     filename: "bundle.js",
-    publicPath: "/dist/",
     path: path.resolve(__dirname, "dist"),
   },
   devServer: {
-    publicPath: "/dist/",
     proxy: {
       "/": "http://localhost:3000",
     },
     hot: true,
+    port: 8080,
+    /* Include contentBase */
+    contentBase: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
@@ -29,11 +30,8 @@ module.exports = {
 				}
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpeg|jpg|gif)$/,
         use: [
-          {
-            loader: "file-loader",
-          },
           {
             loader: "url-loader",
             options: {
