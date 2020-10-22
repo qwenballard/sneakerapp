@@ -79,5 +79,136 @@
 
 
 /*========================================*/
-//Wishlist Component
+//Login/Signup Component
 /*========================================*/
+.login-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 25px;
+
+    .login-image {
+        width: 500px;
+    }
+
+    .login-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+        button {
+            padding: 5px;
+            width: 50px;
+            height: 50px;
+            margin: 5px 15px;
+            color: #027ABB;
+            background-color: white;
+            font-weight: 800;
+            font-size: 20px;
+            border-radius:13px;
+            border:1px solid #027ABB;
+            text-shadow:0px 1px 0px #027ABB;
+            box-shadow: 0px 3px 0px 0px #58c6e1;
+        }
+
+        button:hover {
+            padding: 5px;
+            width: 50px;
+            height: 50px;
+            margin: 5px 15px;
+            color:white;
+            background-color: #58c6e1;
+            font-weight: 800;
+            font-size: 20px;
+            position: relative;
+            top: 1px;
+            border-radius:13px;
+            box-shadow: 0px 0px 0px 0px;
+        }
+    }
+
+    .form-border {
+        width: 40%;
+        border: 1px solid #027ABB;
+        background-color: #027ABB;
+        padding: 25px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+
+        label, h1, p {
+            color: white;
+        }
+
+        label.checkbox {
+            top: -12px;
+        }
+
+        input[type="checkbox"] {
+            top: 14px;
+            margin-right: 10px;
+            width: 18px;
+            display: inline-block;
+            position: relative;
+        }
+
+        label.radio {
+            margin-right: 15px;
+        }
+
+        input[type="radio"] {
+            // margin-top: 5px;
+            width: 30px;
+            display: inline;
+            left: 5px;
+            top: 14px;
+            position: relative;
+        }
+
+        input {
+            color: black;
+            height: 40px;
+            width: 100%;
+            padding-left: 15px;
+            border: 1px solid #027ABB;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+        }
+    }
+
+    .form-toggle {
+        display: inline;
+    }
+
+    .sign-up {
+        width: 150px;
+        margin: auto;
+        box-shadow: 0px 3px 0px 0px #58c6e1;
+        background-color: white;
+        border-radius:28px;
+        border:1px solid #027ABB;
+        display:block;
+        cursor:pointer;
+        color:#027ABB;
+        font-family:Arial;
+        font-size:20px;
+        font-weight:bold;
+        padding:9px 31px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #027ABB;
+    }
+    .sign-up:hover {
+        background-color:#58c6e1;
+        color: white;
+        position: relative;
+        top: 1px;
+        box-shadow: 0px 0px 0px 0px #58c6e1;
+    }
+    .sign-up:active {
+    	position:relative;
+    	top:1px;
+    }
+}

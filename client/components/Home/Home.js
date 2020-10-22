@@ -1,10 +1,10 @@
 import React, { Component, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
+import Sneaker from './Sneaker.js';
 
-//unable to retreive images from assets folder.
+//imported image
 import heroImage from '../../assets/img/hero.jpeg';
 
-import Sneaker from './Sneaker.js';
 
 function Home(props){
   const [sneakers, setSneakers] = useState([]);
