@@ -6,14 +6,24 @@ import logo from "../../assets/img/logo.png";
 
 function Login(props) {
    const [signup, showForm] = useState(true);
+
+  const toggleForm = (string) => {
+    console.log(string);
+    if(string === 'signup') {
+      showForm(true);
+    } else {
+      showForm(false);
+    }
+  };
+
     return (
       <div className="login-container">
         <img className="login-image" src={logo} alt="business-logo" />
         {/* <p className="credit">logo made by DesignEvo</p> */}
         <div className="form-border">
           <div className="form-toggle">
-              <h1 className="signup">Sign Up</h1>
-              <h1>Log In</h1>
+            <h1 onClick={(e) => {toggleForm("signup")}}>Sign Up</h1>
+            <h1 onClick={(e) => {toggleForm("login")}}>Log In</h1>
           </div>
           <div className="login-buttons">
             <button>G+</button>

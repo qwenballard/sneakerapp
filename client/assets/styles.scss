@@ -180,7 +180,13 @@
     }
 
     .form-toggle {
-        display: inline;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: red;
+    }
+
+    .form-toggle h1 {
+        font-size: 24px;
     }
 
     .sign-up {
