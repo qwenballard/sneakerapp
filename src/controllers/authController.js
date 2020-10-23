@@ -95,6 +95,14 @@ authController.createUser = async (req, res, next) => {
   }
 };
 
+authController.updateUser = (req, res, next) => {
+  console.log('body', req.body);
+  console.log('query', req.query);
+  console.log('params', req.params);
+
+  return next();
+};
+
 authController.setCookie = (req, res, next) => {
   console.log('in cookie');
   const { user } = res.locals;

@@ -42,6 +42,11 @@ app.post("/addsneaker", sneakerController.addSneaker, (req, res) => {
   res.status(200).json("sneaker added");
 });
 
+//update needs to be completed
+app.put("/update", authController.updateUser, (req, res, next) => {
+  res.redirect('/');
+});
+
 app.delete("/deletesneaker/:sneakerId", sneakerController.deleteSneaker, (req, res) => {
   res.status(200).json("sneaker deleted");
 });
