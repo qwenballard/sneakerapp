@@ -95,6 +95,15 @@ authController.createUser = async (req, res, next) => {
   }
 };
 
+//needs to be completed
+authController.updateUser = (req, res, next) => {
+  console.log('body', req.body);
+
+  //update user data in postgresQL
+
+  return next();
+};
+
 authController.setCookie = (req, res, next) => {
   console.log('in cookie');
   const { user } = res.locals;

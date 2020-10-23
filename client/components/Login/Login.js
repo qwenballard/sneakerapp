@@ -178,46 +178,11 @@ function Login(props) {
               </div>
             </div>
             <button className="sign-up" type="submit">
-              Sign Up
+              Log In
             </button>
           </form>
         )}
       </div>
-
-      {/* <div class className="login-form">
-          <form action="/login" method="POST">
-            <h1>Log In</h1>
-            <div class="field">
-              <label htmlFor="email-login" class="label">
-                Email
-              </label>
-              <div class="control">
-                <input
-                  type="email"
-                  id="email-login"
-                  name="email"
-                  placeholder="Enter Email"
-                  required
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label htmlFor="password-login" class="label">
-                Password
-              </label>
-              <div class="control">
-                <input
-                  type="password"
-                  id="password-login"
-                  name="password"
-                  placeholder="Enter Password"
-                  required
-                />
-              </div>
-            </div>
-            <button type="submit">Submit</button>
-          </form>
-        </div> */}
     </div>
   );
 }
