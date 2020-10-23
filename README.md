@@ -9,5 +9,5 @@ Features:
 - [x] Add to or Delete from personal sneaker wishlist
 - [ ] Oauth login (Facebook/Gmail)
 - [ ] Vote on favorite Sneakers
-- [ ] Graphs to show breakdown of sneaker wishlist
+- [ ] Graphs to show breakdown of sneaker wishlist (D3)
 - [ ] Show average sale price of sneaker
