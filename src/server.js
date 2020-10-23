@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser"); // <-- needed because I have an older version of express
+const methodOverride = require('method-override');
 
 const app = express();
 const PORT = 3000;
@@ -14,6 +15,7 @@ const { isLoggedIn } = require("./controllers/authController");
 app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
 // app.use(express.json()); // --> Same as body parser
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../client/assets")));
@@ -42,7 +44,7 @@ app.post("/addsneaker", sneakerController.addSneaker, (req, res) => {
   res.status(200).json("sneaker added");
 });
 
-//update needs to be completed
+//check updateUser controller. It still needs to be completed
 app.put("/update", authController.updateUser, (req, res, next) => {
   res.redirect('/');
 });

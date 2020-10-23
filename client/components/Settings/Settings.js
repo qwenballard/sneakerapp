@@ -33,7 +33,7 @@ function Settings(props) {
       <div className="settings-container">
         <div className="settings-form-border">
           <p>Update Profile</p>
-          <form action="/update" method="PUT">
+          <form action="/update?_method=PUT" method="POST">
             <div className="field">
               <label htmlFor="username" className="label">
                 Username

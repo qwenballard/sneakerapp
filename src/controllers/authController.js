@@ -95,10 +95,11 @@ authController.createUser = async (req, res, next) => {
   }
 };
 
+//needs to be completed
 authController.updateUser = (req, res, next) => {
   console.log('body', req.body);
-  console.log('query', req.query);
-  console.log('params', req.params);
+
+  //update user data in postgresQL
 
   return next();
 };
