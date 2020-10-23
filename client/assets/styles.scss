@@ -180,13 +180,32 @@
     }
 
     .form-toggle {
+        border: 1px solid  white;
+        width: 50%;
+        margin: 0 auto 20px auto;
         display: flex;
-        justify-content: space-evenly;
-        background-color: red;
-    }
+        justify-content: space-around;
+        background-color: white;
+        padding: 10px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
 
-    .form-toggle h1 {
-        font-size: 24px;
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color:  #027ABB;
+        }
+
+        h1.selected {
+            padding:2px 8px;
+            background-color:  #58c6e1;
+            color: white;
+            border: 1px solid  #58c6e1;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+        }
     }
 
     .sign-up {
