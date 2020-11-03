@@ -1,9 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: path.resolve("./client/index.js"),
-  devtool: 'inline-source-map',
+  entry: "./client/index.js",
+  devtool: "eval-source-map",
   mode: process.env.NODE_ENV,
   output: {
     filename: "bundle.js",
@@ -16,7 +17,7 @@ module.exports = {
     hot: true,
     port: 8080,
     /* Include contentBase */
-    contentBase: path.resolve(__dirname, 'dist')
+    contentBase: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
@@ -24,17 +25,17 @@ module.exports = {
         test: /.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['@babel/preset-env', '@babel/preset-react']
-					}
-				}
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
       },
       {
-        test: /\.(png|jpeg|jpg|gif)$/,
+        test: /\.(png|jpeg|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         use: [
           {
-            loader: "url-loader",
+            loader: "file-loader",
             options: {
               limit: 8192,
             },
@@ -46,11 +47,11 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
+          'sass-loader',
         ],
       },
     ],
@@ -59,6 +60,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./client/index.html",
     }),
+    new MiniCssExtractPlugin
   ],
   resolve: {
     extensions: [".js", ".jsx"],

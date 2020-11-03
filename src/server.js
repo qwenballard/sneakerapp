@@ -18,7 +18,9 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "../client/assets")));
+
+//Used to serve the production build
+app.use('/dist', express.static(path.join(__dirname, "../dist")));
 
 
 //logged in method needs to be written
