@@ -54,16 +54,16 @@ function Home(props){
     })
 
     return (
-      <div>
-        <div class="sneaker-hero-section">
-          <img className="sneaker-hero" src={heroImage} />
+      <div className='container'>
+        <div className='notification'>
+          <h1>Your Personal Sneaker Wishlist</h1>
         </div>
 
         <div class="field search-bar">
           <p class="control has-icons-left">
             <i class="fas fa-search"></i>
             <input
-              class="input"
+              class="input input-searchbar"
               type="text"
               name="sneaker"
               placeholder="Search for sneaker by name"

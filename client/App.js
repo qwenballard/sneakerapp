@@ -62,7 +62,7 @@ function App() {
           </a>
 
           <a class="navbar-item">
-            <Link to="/login">Login/Sign Up</Link>
+            <Link to="/login">Login</Link>
           </a>
         </div>
       </div>

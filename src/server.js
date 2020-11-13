@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 
 const app = express();
 const PORT = 3000;
+const mode = process.env.NODE_ENV;
 const cors = require("cors");
 
 const authController = require('./controllers/authController');
@@ -19,8 +20,11 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
 //Used to serve the production build
-app.use('/dist', express.static(path.join(__dirname, "../dist")));
+if(mode === 'production'){
+  app.use('/dist', express.static(path.join(__dirname, "../dist")));
+}
 
 
 //logged in method needs to be written
