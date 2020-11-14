@@ -11,7 +11,7 @@ function Signup(props) {
       <form action="/signup" method="POST">
         <div className="field has-icons-left has-icons-right">
           <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-user"></i>
           </span>
           <div class="control">
             <input
@@ -41,7 +41,7 @@ function Signup(props) {
         </div>
         <div className="field has-icons-left has-icons-right">
           <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-signature"></i>
           </span>
           <div class="control">
             <input
@@ -56,7 +56,7 @@ function Signup(props) {
         </div>
         <div className="field has-icons-left has-icons-right">
           <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-signature"></i>
           </span>
           <div class="control">
             <input
@@ -71,7 +71,7 @@ function Signup(props) {
         </div>
         <div className="field has-icons-left has-icons-right">
           <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-lock"></i>
           </span>
           <div class="control">
             <input
@@ -86,7 +86,7 @@ function Signup(props) {
         </div>
         <div className="field has-icons-left has-icons-right">
           <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-shoe-prints"></i>
           </span>
           <div class="control">
             <input
@@ -102,11 +102,11 @@ function Signup(props) {
           <div className="control">
             <label className="radio">
               <input type="radio" name="gender" value="men" />
-               Men
+              Men
             </label>
             <label className="radio">
               <input type="radio" name="gender" value="women" />
-               Women
+              Women
             </label>
           </div>
         </div>
@@ -117,9 +117,9 @@ function Signup(props) {
             </label>
           </div>
         </div>
-          <button className="form-button signup-button" type="submit">
-            Sign Up
-          </button>
+        <button className="form-button signup-button" type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
   );
