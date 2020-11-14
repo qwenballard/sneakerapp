@@ -5,7 +5,8 @@ import './assets/styles.scss';
 
 
 import Home from './components/Home/Home.js';
-import Login from './components/Login/Login.js';
+import Login from './components/Forms/Login.js';
+import Signup from './components/Forms/Signup.js';
 import Settings from './components/Settings/Settings.js';
 import Wishlist from './components/Wishlist/Wishlist.js';
 
@@ -64,6 +65,10 @@ function App() {
           <a class="navbar-item">
             <Link to="/login">Login</Link>
           </a>
+
+          <a class="navbar-item">
+            <Link to="/signup">Sign Up</Link>
+          </a>
         </div>
       </div>
     </nav>
@@ -120,7 +125,7 @@ function App() {
     <React.Fragment>
       <Router>
         <div>
-          { isAuthorized }
+          {isAuthorized}
 
           <Switch>
             <Route exact path="/profile/wishlist">
@@ -131,6 +136,9 @@ function App() {
             </Route>
             <Route exact path="/login">
               <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
             </Route>
             <Route exact path="/">
               <Home {...user} authorized={authorized} />

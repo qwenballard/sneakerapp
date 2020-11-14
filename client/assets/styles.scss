@@ -9,7 +9,7 @@
 }
 
 //Website Colors
-$color-red : #910000;
+$color-red : #b50000;
 $color-darkgrey : #474747;
 $color-lightgrey : #A3A3A3;
 $color-white: #F4F4F9;
@@ -113,256 +113,109 @@ $bg-img: url('../assets/img/hero.jpeg');
 /*========================================*/
 //Login/Signup Component
 /*========================================*/
-.login-container {
+.form-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
     margin-top: 25px;
+    width: 500px;
+    margin: auto;
+}
 
-    .login-image {
-        width: 500px;
-    }
+.form-container h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: $color-red;
+    margin-bottom: 35px;
+}
 
-    .login-buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        
-        button {
-            padding: 5px;
-            width: 50px;
-            height: 50px;
-            margin: 5px 15px;
-            color: #027ABB;
-            background-color: white;
-            font-weight: 800;
-            font-size: 20px;
-            border-radius:13px;
-            border:1px solid #027ABB;
-            text-shadow:0px 1px 0px #027ABB;
-            box-shadow: 0px 3px 0px 0px #58c6e1;
-        }
+.form-logo {
+    margin-bottom: 25px;
+}
 
-        button:hover {
-            padding: 5px;
-            width: 50px;
-            height: 50px;
-            margin: 5px 15px;
-            color:white;
-            background-color: #58c6e1;
-            font-weight: 800;
-            font-size: 20px;
-            position: relative;
-            top: 1px;
-            border-radius:13px;
-            box-shadow: 0px 0px 0px 0px;
-        }
-    }
+.form-redirect {
+    color: $color-red;
+    font-weight: bold;
+}
 
-    .form-border {
-        width: 40%;
-        border: 1px solid #027ABB;
-        background-color: #027ABB;
-        padding: 25px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        border-radius: 50px;
+.form-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
 
-        label, h1, p {
-            color: white;
-        }
+.form-area p {
+    font-size: 16px;
+    width: 40%;
+}
 
-        label.checkbox {
-            top: -12px;
-        }
+.form-button {
+    color: $color-white;
+    font-weight: bold;
+    width: 120px;
+    font-size: 24px;
+    padding: 15px 15px;
+    border-radius: 18px;
+    border: 1px solid $color-red;
+    background-color: $color-red;
+}
 
-        input[type="checkbox"] {
-            top: 14px;
-            margin-right: 10px;
-            width: 18px;
-            display: inline-block;
-            position: relative;
-        }
+.signup-button {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin: auto;
+}
 
-        label.radio {
-            margin-right: 15px;
-        }
+.input {
+    border: 3px solid $color-darkgrey;
+    color: $color-darkgrey;
+    margin-bottom: -5px;
+}
 
-        input[type="radio"] {
-            // margin-top: 5px;
-            width: 30px;
-            display: inline;
-            left: 5px;
-            top: 14px;
-            position: relative;
-        }
+.input.is-rounded {
+    padding-left: 50px;
+}
 
-        input {
-            color: black;
-            height: 40px;
-            width: 100%;
-            padding-left: 15px;
-            border: 1px solid #027ABB;
-            -webkit-border-radius: 50px;
-            -moz-border-radius: 50px;
-            border-radius: 50px;
-        }
-    }
 
-    .form-toggle {
-        border: 1px solid  white;
-        width: 50%;
-        margin: 0 auto 20px auto;
-        display: flex;
-        justify-content: space-around;
-        background-color: white;
-        padding: 10px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        border-radius: 50px;
+.input::placeholder {
+    color: $color-lightgrey;
+}
 
-        h1 {
-            font-size: 24px;
-            font-weight: bold;
-            color:  #027ABB;
-        }
+.icon {
+    top: 29px;
+    left: -5px;
+    position: relative;
+    font-size: 20px;
+}
 
-        h1.selected {
-            padding:2px 8px;
-            background-color:  #58c6e1;
-            color: white;
-            border: 1px solid  #58c6e1;
-            -webkit-border-radius: 50px;
-            -moz-border-radius: 50px;
-            border-radius: 50px;
-        }
-    }
+form {
+    width: 344px;
+}
 
-    .sign-up {
-        width: 150px;
-        margin: auto;
-        box-shadow: 0px 3px 0px 0px #58c6e1;
-        background-color: white;
-        border-radius:28px;
-        border:1px solid #027ABB;
-        display:block;
-        cursor:pointer;
-        color:#027ABB;
-        font-family:Arial;
-        font-size:20px;
-        font-weight:bold;
-        padding:9px 31px;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #027ABB;
-    }
-    .sign-up:hover {
-        background-color:#58c6e1;
-        color: white;
-        position: relative;
-        top: 1px;
-        box-shadow: 0px 0px 0px 0px #58c6e1;
-    }
-    .sign-up:active {
-    	position:relative;
-    	top:1px;
-    }
+label.radio {
+    padding-right: 10px;
+    font-size: 20px;
+}
+input[type=radio] {
+    margin-top: 20px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+input[type=checkbox] {
+    margin-right: 5px;
+    margin-bottom: 10px;
 }
 
 
 /*========================================*/
-//Settings Component
+//Wishlist Component
 /*========================================*/
-.settings-container {
-    display: flex;
-    justify-content: space-around;
-    
-    .settings-form-border {
-        width: 40%;
-        border: 1px solid #027ABB;
-        background-color: #027ABB;
-        padding: 25px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        border-radius: 50px;
-
-        label, h1, p {
-            color: white;
-        }
-
-        input[type="checkbox"] {
-            margin-right: 10px;
-            width: 18px;
-            display: inline-block;
-            position: relative;
-        }
-
-        label.radio {
-            margin-right: 15px;
-        }
-
-        label {
-            margin-right: 15px;
-        }
-
-        input[type="radio"] {
-            // margin-top: 5px;
-            width: 30px;
-            display: inline;
-            left: 5px;
-            top: 14px;
-            position: relative;
-        }
-
-        input {
-            color: black;
-            height: 40px;
-            width: 100%;
-            padding-left: 15px;
-            border: 1px solid #027ABB;
-            -webkit-border-radius: 50px;
-            -moz-border-radius: 50px;
-            border-radius: 50px;
-        }
-
-        button {
-            padding: 5px;
-            width: 200px;
-            height: 50px;
-            margin: 25px auto 10px auto;
-            color: #027ABB;
-            background-color: white;
-            font-weight: 800;
-            font-size: 20px;
-            border:1px solid #027ABB;
-            -webkit-border-radius: 50px;
-            -moz-border-radius: 50px;
-            border-radius: 50px;
-            text-shadow:0px 1px 0px #027ABB;
-            box-shadow: 0px 3px 0px 0px #58c6e1;
-        }
-
-        button:hover {
-            padding: 5px;
-            width: 200px;
-            height: 50px;
-            margin: 25px auto 10px auto;
-            color:white;
-            background-color: #58c6e1;
-            font-weight: 800;
-            font-size: 20px;
-            position: relative;
-            top: 1px;
-            border:1px solid #027ABB;
-            -webkit-border-radius: 50px;
-            -moz-border-radius: 50px;
-            border-radius: 50px;
-            box-shadow: 0px 0px 0px 0px;
-        }
-
-        .settings-submit {
-            text-align: center;
-        }
-    }
+.wishlist-user {
+    font-size: 24px;
+    font-weight: bold;
+    color: $color-darkgrey;
 }

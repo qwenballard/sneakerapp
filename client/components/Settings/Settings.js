@@ -30,9 +30,9 @@ function Settings(props) {
     // }, []);
     
     return (
-      <div className="settings-container">
+      <div className="form-container">
         <div className="settings-form-border">
-          <p>Update Profile</p>
+          <h2>Update Profile</h2>
           <form action="/update?_method=PUT" method="POST">
             <div className="field">
               <label htmlFor="username" className="label">
@@ -40,6 +40,7 @@ function Settings(props) {
               </label>
               <div className="control">
                 <input
+                  className="input login-input is-medium is-rounded"
                   type="text"
                   id="username"
                   name="username"
@@ -56,6 +57,7 @@ function Settings(props) {
               </label>
               <div className="control">
                 <input
+                  className="input login-input is-medium is-rounded"
                   type="email"
                   id="email"
                   name="email"
@@ -72,6 +74,7 @@ function Settings(props) {
               </label>
               <div className="control">
                 <input
+                  className="input login-input is-medium is-rounded"
                   type="text"
                   id="first_name"
                   name="first_name"
@@ -88,6 +91,7 @@ function Settings(props) {
               </label>
               <div className="control">
                 <input
+                  className="input login-input is-medium is-rounded"
                   type="text"
                   id="last_name"
                   name="last_name"
@@ -104,6 +108,7 @@ function Settings(props) {
               </label>
               <div className="control">
                 <input
+                  className="input login-input is-medium is-rounded"
                   type="text"
                   id="favorite_shoe"
                   name="favorite_shoe"
@@ -124,21 +129,10 @@ function Settings(props) {
                     type="radio"
                     name="gender"
                     id="men"
-                    value='men'
+                    value="men"
                     checked="checked"
                     onChange={handleChange}
                   />
-                </label>
-                <label htmlFor="gender">
-                  Women
-                  <input type="radio" name="gender" id="women" value="women" onChange={handleChange} />
-                </label>
-              </div>
-            ) : (
-              <div className="radio-buttons">
-                <label htmlFor="gender">
-                  Men
-                  <input type="radio" name="gender" id="men" value="men" onChange={handleChange} />
                 </label>
                 <label htmlFor="gender">
                   Women
@@ -147,20 +141,40 @@ function Settings(props) {
                     name="gender"
                     id="women"
                     value="women"
-                    checked="checked"
                     onChange={handleChange}
                   />
                 </label>
               </div>
+            ) : (
+              <div className="field">
+                <div className="control">
+                  <label className="radio">
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="men"
+                      onChange={handleChange}
+                    />
+                    Men
+                  </label>
+                  <label className="radio">
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="women"
+                      onChange={handleChange}
+                    />
+                    Women
+                  </label>
+                </div>
+              </div>
             )}
-            <div className="settings-submit">
-              <button type="submit">Submit</button>
-            </div>
+            <button className="form-button" type="submit">
+              Submit
+            </button>
           </form>
         </div>
-        <div>
-          <h1>Placeholder</h1>
-        </div>
+        <div></div>
       </div>
     );
 }

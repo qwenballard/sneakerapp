@@ -31,11 +31,10 @@ function Wishlist(props) {
     setTimeout(retreiveWishlist, 300)
   }, []);
 
-  //make wishlist refresh once an item is deleted. Or hide the item
 
   return (
     <div>
-      <p>{user.first_name}'s Wishlist</p>
+      <p className='wishlist-user'>{user.first_name}'s Wishlist</p>
       {wishlist.length === 0 ? (
         <p>no shoes</p>
       ) : (

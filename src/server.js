@@ -13,6 +13,7 @@ const authController = require('./controllers/authController');
 const sneakerController = require('./controllers/sneakerController');
 const { isLoggedIn } = require("./controllers/authController");
 
+
 app.use(cors({ credentials: true, origin: "http://localhost:8080" }));
 // app.use(express.json()); // --> Same as body parser
 app.use(cookieParser());
@@ -21,13 +22,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-//Used to serve the production build
+//Used to serve the production build - still need to update webpack to account for images
 if(mode === 'production'){
   app.use('/dist', express.static(path.join(__dirname, "../dist")));
 }
 
 
-//logged in method needs to be written
+//logged in method needs to be implemented
 app.get("/", (req, res) => {
   //won't let you do anything if you aren't logged in
   res.sendFile(path.resolve(__dirname, "../client/index.html"),);
@@ -70,17 +71,6 @@ app.use('*', (req, res) => {
 app.use((req, res) => {
     console.log("catch-all route handler is working");
 });
-
-// app.use((err, req, res, next) => {
-//     const defaultErr = {
-//         log: "Express error handler caught unknown middleware error",
-//         status: 400,
-//         message: { err: "An error occurred" },
-//     };
-//     const errorObj = Object.assign({}, defaultErr, err);
-//     console.log(errorObj.log);
-//     res.status(errorObj.status).json(errorObj.message);
-// });
 
 //server is listening
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
