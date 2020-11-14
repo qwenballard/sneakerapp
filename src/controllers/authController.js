@@ -97,7 +97,7 @@ authController.createUser = async (req, res, next) => {
 
 //needs to be completed
 authController.updateUser = (req, res, next) => {
-  console.log('body', req.body);
+  // console.log('body', req.body);
 
   //update user data in postgresQL
 
@@ -107,10 +107,8 @@ authController.updateUser = (req, res, next) => {
 authController.setCookie = (req, res, next) => {
   console.log('in cookie');
   const { user } = res.locals;
-  // console.log(user);
-  // console.log(user._id);
 
-  //600000 is 10 minutes
+  //600000 is 10 minutes and then the token expires
   res.cookie("token", user._id, { httpOnly: true, maxAge: 600000 });
   return next();
 };

@@ -38,16 +38,11 @@ sneakerController.addSneaker = async (req, res, next) => {
         return res.json('Please login first');
       }
 
-      console.log("token", token);
-      console.log(req.body);
-
       let results = await fetch(
         `https://api.thesneakerdatabase.com/v1/sneakers/${sneakerId}`
       );
       let data = await results.json();
       let shoe = data.results[0];
-
-      console.log(shoe);
 
       let addNewSneaker = [
         Number(token),
@@ -67,7 +62,6 @@ sneakerController.addSneaker = async (req, res, next) => {
         shoe.media.thumbUrl,
       ];
 
-      console.log(addNewSneaker);
 
       const addSneaker = `
         INSERT INTO wishlist

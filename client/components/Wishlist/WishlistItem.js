@@ -3,7 +3,7 @@ import React, { Component, useState, useEffect } from 'react';
 function WishlistItem(props){
   const { deleteSneaker } = props;
     const { sneaker_id, title, image_url, release_price, year, gender } = props.data;
-    console.log(sneaker_id);
+    // console.log(sneaker_id);
     return (
       <div className={"card"}>
         <header class="card-header">
