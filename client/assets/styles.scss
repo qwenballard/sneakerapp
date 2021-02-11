@@ -78,37 +78,6 @@ $bg-img: url('../assets/img/hero.jpeg');
     color: $color-darkgrey;
 }
 
-/*========================================*/
-//Sneaker Component
-/*========================================*/
-.sneaker-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 95%;
-    margin: auto;
-}
-
- .sneaker-image {
-    width: 202px;
-    height: 144px;
-}
-
-.card {
-    width: 275px;
-    margin: 20px;
-    justify-content: space-evenly;
-}
-
-.fa-plus, .fa-minus {
-    left: 0px;
-    margin: 0px;
-}
-
-.sneaker-add {
-    margin-left: 10px;
-}
-
 
 /*========================================*/
 //Login/Signup Component

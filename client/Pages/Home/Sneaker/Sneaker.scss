@@ -1,0 +1,43 @@
+.sneakerContainer {
+ width: 250px;
+ margin: 40px 10px;
+ box-shadow: 
+ 0 1px 2px rgb(0 0 0 / 7%), 
+ 0 2px 4px rgb(0 0 0 / 7%), 
+ 0 4px 8px rgb(0 0 0 / 7%), 
+ 0 8px 16px rgb(0 0 0 / 7%), 
+ 0 16px 32px rgb(0 0 0 / 7%), 
+ 0 32px 64px rgb(0 0 0 / 7%);
+}
+
+.sneakerTitle {
+    font-weight: bolder;
+    border-bottom: 1px solid lightgrey;
+    padding: 1rem;
+}
+
+.sneakerImage {
+    width: 85%;
+    margin: auto;
+}
+
+.sneakerRetailPrice {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.addSneaker {
+    border-top: 1px solid lightgrey;
+    padding: 10px;
+}
+
+.fas {
+    position: relative;
+    left: 60px;
+    margin: 0px;
+}
+
+.addSneakerText {
+    position: relative;
+    left: 70px;
+}

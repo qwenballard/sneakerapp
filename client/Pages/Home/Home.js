@@ -80,7 +80,7 @@ function Home(props){
           </button>
         </div>
 
-        <div class="sneaker-container">{showSneakers}</div>
+        <div class="sneakers-container">{showSneakers}</div>
       </div>
     );
 }

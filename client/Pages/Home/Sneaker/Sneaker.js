@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Sneaker.scss';
 // import noImage from "../../assets/img/no-image.jpg";
 
 const Sneaker = (props) => {
@@ -7,24 +8,24 @@ const Sneaker = (props) => {
 
     const showSneakerImage = (media.imageUrl !== null ? media.imageUrl : noImage );
  return (
-   <div className="card">
-     <header class="card-header">
-       <p class="card-header-title">
-         {title} - {year}
+   <div className='sneakerContainer'>
+     <header className='sneakerTitle'>
+       <p>
+         {title} ({year})
        </p>
      </header>
-     <div class="card-content">
-       <div class="content">
-         <img className="sneaker-image" src={showSneakerImage} alt={title} />
+     <div>
+       <div className='sneakerImage'>
+         <img src={showSneakerImage} alt={title} />
          <br></br>
          <br></br>
-         <p style={{ textAlign: "center" }}>Retail Price: ${retailPrice}</p>
+         <p className='sneakerRetailPrice'>Retail Price: ${retailPrice}</p>
        </div>
      </div>
-     <footer class="card-footer" onClick={() => addSneaker(id)}>
-       <a href="#" class="card-footer-item">
+     <footer className='addSneaker' onClick={() => addSneaker(id)}>
+       <a href="#">
          <i class="fas fa-plus"></i>
-         <span className="sneaker-add">Add</span>
+         <span className='addSneakerText'>Add Sneaker</span>
        </a>
      </footer>
    </div>
