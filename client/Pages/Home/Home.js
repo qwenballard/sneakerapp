@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
-import Sneaker from './Sneaker.js';
+import Sneaker from './Sneaker/Sneaker';
 
 //imported image
 import heroImage from '../../assets/img/hero.jpeg';

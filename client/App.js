@@ -4,11 +4,11 @@ import './assets/styles.scss';
 
 
 
-import Home from './components/Home/Home.js';
-import Login from './components/Forms/Login.js';
-import Signup from './components/Forms/Signup.js';
-import Settings from './components/Settings/Settings.js';
-import Wishlist from './components/Wishlist/Wishlist.js';
+import Home from './Pages/Home/Home.js';
+import Login from './Pages/Login/Login.js';
+import Signup from './Pages/Signup/Signup.js';
+import Settings from './Pages/Settings/Settings.js';
+import Wishlist from './Pages/Wishlist/Wishlist.js';
 
 
 
@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   const isAuthorized = !authorized ? (
-    //Navbar that hides the wishlist and profile components and links
+    //Navbar that hides the wishlist and profile Pages and links
     <nav
       class="navbar container"
       role="navigation"
@@ -73,7 +73,7 @@ function App() {
       </div>
     </nav>
   ) : (
-    //Navbar that shows the wishlist and profile components and links
+    //Navbar that shows the wishlist and profile Pages and links
     <nav
       class="navbar container"
       role="navigation"

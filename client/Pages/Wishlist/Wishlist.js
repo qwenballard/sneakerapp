@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from 'react';
-import WishlistItem from './WishlistItem.js';
+import WishlistSneaker from './WishlistSneaker/WishlistSneaker';
 import { v4 as uuidv4 } from "uuid";
 
 function Wishlist(props) {
@@ -41,7 +41,7 @@ function Wishlist(props) {
         <div className="sneaker-container">
           {wishlist.map((sneaker) => {
             return (
-              <WishlistItem
+              <WishlistSneaker
                 key={uuidv4()}
                 data={sneaker}
                 deleteSneaker={deleteSneaker}

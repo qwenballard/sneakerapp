@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 
-function WishlistItem(props){
+function WishlistSneaker(props){
   const { deleteSneaker } = props;
     const { sneaker_id, title, image_url, release_price, year, gender } = props.data;
     // console.log(sneaker_id);
@@ -36,4 +36,4 @@ function WishlistItem(props){
     );
 }
 
-export default WishlistItem;
+export default WishlistSneaker;
