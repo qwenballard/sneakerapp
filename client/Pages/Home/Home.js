@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import Sneaker from './Sneaker/Sneaker';
+import './Home.scss';
 
 //imported image
 import heroImage from '../../assets/img/hero.jpeg';
@@ -11,8 +12,7 @@ function Home(props){
   const [search, setSearch] = useState('');
 
   const handleChange = (e) => {
-    const { value } = e.target;
-    setSearch(value);
+    setSearch(e.target.value);
   }
 
   const handleSubmit = () => {
@@ -54,28 +54,28 @@ function Home(props){
     })
 
     return (
-      <div className='container'>
-        <div className='notification'>
-          <h1>Your Personal Sneaker Wishlist</h1>
+      <div className="container">
+        <div className="homeBackgroundImage">
+          <span className="homeHeaderPrimary">Search {"&"} Save</span>
+          <br></br>
+          <span className="homeHeaderSecondary">
+            Your Personal Sneaker Wishlist
+          </span>
         </div>
 
-        <div class="field search-bar">
-          <p class="control has-icons-left">
+        <div className="searchBoxContainer">
+          <span>
             <i class="fas fa-search"></i>
-            <input
-              class="input input-searchbar"
-              type="text"
-              name="sneaker"
-              placeholder="Search for sneaker by name"
-              onChange={handleChange}
-              value={search}
-            ></input>
-          </p>
-          <button
-            class="search-button button is-info is-outlined"
-            type="submit"
-            onClick={handleSubmit}
-          >
+          </span>
+          <input
+            className="searchBox"
+            type="text"
+            name="searchSneaker"
+            placeholder="Sneakers..."
+            onChange={handleChange}
+            value={search}
+          ></input>
+          <button className="searchButton" type="submit" onClick={handleSubmit}>
             Search
           </button>
         </div>
