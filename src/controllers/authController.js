@@ -23,6 +23,7 @@ authController.loginUser = async (req, res, next) => {
         }
 
         if(password === data.rows[0].password){
+          console.log('login successful');
             const foundUser = data.rows[0];
             res.locals.user = foundUser;
             return next();
