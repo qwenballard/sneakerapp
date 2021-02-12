@@ -9,6 +9,7 @@ import Login from './Pages/Login/Login.js';
 import Signup from './Pages/Signup/Signup.js';
 import Settings from './Pages/Settings/Settings.js';
 import Wishlist from './Pages/Wishlist/Wishlist.js';
+import SneakerPage from './Pages/SneakerPage/SneakerPage.js';
 
 
 
@@ -36,16 +37,16 @@ function App() {
   const isAuthorized = !authorized ? (
     //Navbar that hides the wishlist and profile Pages and links
     <nav
-      class="navbar container"
+      className="navbar container"
       role="navigation"
       aria-label="main navigation"
     >
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io"></a>
+      <div className="navbar-brand">
+        <a className="navbar-item" href="https://bulma.io"></a>
 
         <a
           role="button"
-          class="navbar-burger burger"
+          className="navbar-burger burger"
           aria-label="menu"
           aria-expanded="false"
           data-target="navbarBasicExample"
@@ -57,16 +58,16 @@ function App() {
       </div>
 
       <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
-          <a class="navbar-item">
+        <div className="navbar-end">
+          <a className="navbar-item">
             <Link to="/">Home</Link>
           </a>
 
-          <a class="navbar-item">
+          <a className="navbar-item">
             <Link to="/login">Login</Link>
           </a>
 
-          <a class="navbar-item">
+          <a className="navbar-item">
             <Link to="/signup">Sign Up</Link>
           </a>
         </div>
@@ -75,12 +76,12 @@ function App() {
   ) : (
     //Navbar that shows the wishlist and profile Pages and links
     <nav
-      class="navbar container"
+      className="navbar container"
       role="navigation"
       aria-label="main navigation"
     >
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io"></a>
+      <div className="navbar-brand">
+        <a className="navbar-item" href="https://bulma.io"></a>
 
         <a
           role="button"
@@ -96,20 +97,20 @@ function App() {
       </div>
 
       <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
-          <a class="navbar-item">
+        <div className="navbar-end">
+          <a className="navbar-item">
             <Link to="/">Home</Link>
           </a>
 
-          <a class="navbar-item">
+          <a className="navbar-item">
             <Link to="/profile/wishlist">Wishlist</Link>
           </a>
 
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">Settings</a>
+          <div className="navbar-item has-dropdown is-hoverable">
+            <a className="navbar-link">Settings</a>
 
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
+            <div className="navbar-dropdown">
+              <a className="navbar-item">
                 <Link to="/profile/settings">My Account</Link>
               </a>
               {/* Include this functionality later */}
@@ -139,6 +140,9 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/sneakers/:id">
+              <SneakerPage />
             </Route>
             <Route exact path="/">
               <Home {...user} authorized={authorized} />

@@ -23,15 +23,17 @@ function WishlistSneaker(props){
             </p>
           </div>
         </div>
-        <footer
-          class="addSneaker"
-          onClick={(e) => {
-            deleteSneaker(sneaker_id)
-          }}
-        >
+        <footer class="addSneaker">
           <a href="#" class="card-footer-item">
             <i class="fas fa-minus"></i>
-            <span className="addSneakerText">Delete</span>
+            <span
+              className="addSneakerText"
+              onClick={(e) => {
+                deleteSneaker(sneaker_id);
+              }}
+            >
+              Delete
+            </span>
           </a>
         </footer>
       </div>

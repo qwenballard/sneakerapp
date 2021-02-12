@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import './Sneaker.scss';
 import noImage from "../../../assets/img/no-image.jpg";
 
@@ -8,24 +9,30 @@ const Sneaker = (props) => {
 
     const showSneakerImage = (media.imageUrl !== null ? media.imageUrl : noImage );
  return (
-   <div className='sneakerContainer'>
-     <header className='sneakerTitle'>
+   <div className="sneakerContainer">
+     <header className="sneakerTitle">
        <p>
          {title} ({year})
        </p>
      </header>
      <div>
-       <div className='sneakerImage'>
+       <div className="sneakerImage">
          <img src={showSneakerImage} alt={title} />
          <br></br>
          <br></br>
-         <p className='sneakerRetailPrice'>Retail Price: ${retailPrice}</p>
+         <p className="sneakerRetailPrice">Retail Price: ${retailPrice}</p>
        </div>
      </div>
-     <footer className='addSneaker' onClick={() => addSneaker(id)}>
+     <footer className="addSneaker">
        <a href="#">
          <i class="fas fa-plus"></i>
-         <span className='addSneakerText'>Add Sneaker</span>
+         <span className="addSneakerText" onClick={() => addSneaker(id)}>
+           Add Sneaker
+         </span>
+         <br></br>
+         <Link className="addSneakerText" to={`/sneakers/${id}`}>
+           View More
+         </Link>
        </a>
      </footer>
    </div>
