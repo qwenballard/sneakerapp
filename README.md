@@ -11,3 +11,8 @@ Features:
 - [ ] Vote on favorite Sneakers
 - [ ] Graphs to show breakdown of sneaker wishlist (D3)
 - [ ] Show average sale price of sneaker
+
+
+Things to Fix: 
+- Login: Error if someone enters incorrect password or email
+- Loading of pages... shouldn't say their are no sneakers unless there actually are none
