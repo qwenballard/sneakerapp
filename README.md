@@ -7,7 +7,8 @@ Tech Used: React Hooks, Node.js, Express, PostgresQL, a sneakerAPI.
 Features:
 - [x] Create/Update personal account
 - [x] Add to or Delete from personal sneaker wishlist
-- [ ] Search and view related sneakers
+- [x] View one sneaker and it's info
+- [ ] Search and view related sneakers (almost)
 - [ ] Oauth login (Facebook/Gmail)
 - [ ] Vote on favorite Sneakers
 - [ ] Graphs to show breakdown of sneaker wishlist (D3)
