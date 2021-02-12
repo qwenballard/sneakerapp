@@ -37,7 +37,7 @@ $color-white: #F4F4F9;
 //Search Box
 //==================================================
 .searchBoxContainer {
-    margin: 10px auto;
+    margin: 20px auto;
     width: 500px;
 }
 
@@ -55,6 +55,8 @@ $color-white: #F4F4F9;
 }
 
 .searchButton {
+    font-weight: bold;
+    font-size: 1rem;
     height: 39px;
     width: 100px;
     margin: 0px 10px;
@@ -62,5 +64,15 @@ $color-white: #F4F4F9;
     top: -3px;
     color: $color-white;
     background-color: $color-red;
-    border-radius: 2px;
+    border-radius: 3px;
+}
+
+.searchError {
+    width: 350px;
+    padding: 2px 1px;
+    position: relative;
+    left: 14px;
+    color: $color-red;
+    background-color: #ffc6c6;
+    border: 1px solid #ffc6c6;
 }

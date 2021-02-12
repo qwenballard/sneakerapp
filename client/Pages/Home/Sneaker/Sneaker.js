@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Sneaker.scss';
-// import noImage from "../../assets/img/no-image.jpg";
+import noImage from "../../../assets/img/no-image.jpg";
 
 const Sneaker = (props) => {
     const { addSneaker } = props;

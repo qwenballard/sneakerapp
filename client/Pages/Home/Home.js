@@ -4,21 +4,32 @@ import Sneaker from './Sneaker/Sneaker';
 import './Home.scss';
 
 //imported image
-import heroImage from '../../assets/img/hero.jpeg';
+// import heroImage from '../../assets/img/hero.jpeg';
 
 
 function Home(props){
   const [sneakers, setSneakers] = useState([]);
   const [search, setSearch] = useState('');
+  const [searchError, setSearchError] = useState('');
 
   const handleChange = (e) => {
     setSearch(e.target.value);
   }
 
   const handleSubmit = () => {
+    if(search === '') {
+      console.log('nothing submitted');
+      setSearchError('Please Enter a Sneaker Name');
+      return;
+    }
+
     fetch(`https://api.thesneakerdatabase.com/v1/sneakers?limit=10&name=${search}`)
     .then(res => res.json())
-    .then(data => setSneakers(data.results))
+    .then(data => {
+      console.log(data.results);
+      setSneakers(data.results);
+      setSearchError('');
+    })
     .catch(err => console.log(err));
   }
 
@@ -65,7 +76,7 @@ function Home(props){
 
         <div className="searchBoxContainer">
           <span>
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
           </span>
           <input
             className="searchBox"
@@ -78,6 +89,13 @@ function Home(props){
           <button className="searchButton" type="submit" onClick={handleSubmit}>
             Search
           </button>
+          {searchError ? (
+            <span>
+              <p className="searchError">{searchError}</p>
+            </span>
+          ) : (
+            ""
+          )}
         </div>
 
         <div class="sneakers-container">{showSneakers}</div>
