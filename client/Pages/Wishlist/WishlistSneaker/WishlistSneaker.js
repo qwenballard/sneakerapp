@@ -1,35 +1,37 @@
 import React, { Component, useState, useEffect } from 'react';
+import "./WishlistSneaker.scss";
+
 
 function WishlistSneaker(props){
   const { deleteSneaker } = props;
     const { sneaker_id, title, image_url, release_price, year, gender } = props.data;
     // console.log(sneaker_id);
     return (
-      <div className={"card"}>
-        <header class="card-header">
-          <p class="card-header-title">
+      <div className="wishlistSneakerContainer">
+        <header className="wishlistSneakerTitle">
+          <p>
             {title} - {year} - {gender}
           </p>
         </header>
-        <div class="card-content">
-          <div class="content">
+        <div>
+          <div class="wishlistSneakerImage">
             <img className="sneaker-image" src={image_url} alt={title} />
             <br></br>
             <br></br>
-            <p style={{ textAlign: "center" }}>
+            <p className="wishlistSneakerRetailPrice">
               Retail Price: ${release_price}
             </p>
           </div>
         </div>
         <footer
-          class="card-footer"
+          class="addSneaker"
           onClick={(e) => {
             deleteSneaker(sneaker_id)
           }}
         >
           <a href="#" class="card-footer-item">
             <i class="fas fa-minus"></i>
-            <span className="sneaker-add">Delete</span>
+            <span className="addSneakerText">Delete</span>
           </a>
         </footer>
       </div>

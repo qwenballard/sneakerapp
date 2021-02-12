@@ -2,6 +2,8 @@ import React, { Component, useState, useEffect } from 'react';
 import WishlistSneaker from './WishlistSneaker/WishlistSneaker';
 import { v4 as uuidv4 } from "uuid";
 
+import './Wishlist.scss';
+
 function Wishlist(props) {
   const [user, setUser] = useState(props);
   const [wishlist, setWishlist] = useState([]);
@@ -33,12 +35,12 @@ function Wishlist(props) {
 
 
   return (
-    <div>
-      <p className='wishlist-user'>{user.first_name}'s Wishlist</p>
+    <div className="sneakersContainer">
+      <p className="wishlist-user">{user.first_name}'s Wishlist</p>
       {wishlist.length === 0 ? (
         <p>no shoes</p>
       ) : (
-        <div className="sneaker-container">
+        <div className="sneakersContainer">
           {wishlist.map((sneaker) => {
             return (
               <WishlistSneaker
