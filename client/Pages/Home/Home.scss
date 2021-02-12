@@ -67,6 +67,13 @@ $color-white: #F4F4F9;
     border-radius: 3px;
 }
 
+.searchBoxLoader {
+    margin: 40px auto;
+    width: 100%;
+    position: relative;
+    left: 50%;
+}
+
 .searchError {
     width: 350px;
     padding: 2px 1px;
@@ -75,4 +82,14 @@ $color-white: #F4F4F9;
     color: $color-red;
     background-color: #ffc6c6;
     border: 1px solid #ffc6c6;
+}
+
+.sneakersContainer {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
