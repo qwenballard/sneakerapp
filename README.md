@@ -18,5 +18,7 @@ Things to Fix:
 - [ ] add unit testing (priority)
 - [ ] add storybook (priority)
 - [ ] finish setting up SneakerPage and related sneakers list (priority)
+- [ ] clean up console.logs and rest of codebase
 - [ ] Login: Error if someone enters incorrect password or email. (redirect back to login)
 - [ ] Loading of pages... shouldn't say their are no sneakers unless there actually are none
+- [ ] add 404 error (page not found)
