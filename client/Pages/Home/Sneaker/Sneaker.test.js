@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
 import Sneaker from "./Sneaker";
 
@@ -17,35 +17,29 @@ describe("<Sneaker />", () => {
 
   it("it should contain sneaker title, retail price", () => {
     const { container, getByText } = render(<Sneaker data={sneakerData} />);
-    const title = container.querySelector('.sneakerTitle').firstChild;
-    const retailPrice = getByText('Retail Price: $125');
+    const title = container.querySelector(".sneakerTitle").firstChild;
+    const retailPrice = getByText("Retail Price: $125");
 
     expect(title).toBeInTheDocument();
     expect(retailPrice).toBeInTheDocument();
   });
 
-//   it("it should contain two links (Add Sneaker, View More)", () => {
-//     expect(
-//       screen
-//         .getByText("Add Sneaker")
-//         .toHaveAttribute(
-//           "href",
-//           "http://localhost:8080/sneakers/8bcae5e5-e5d9-4a83-8aed-30aeaf2950a1"
-//         )
-//     );
+  it("it should contain two links (Add Sneaker, View More)", () => {
+    const { container, getByText } = render(<Sneaker data={sneakerData} />);
+    
+    expect(screen.getByText("Add Sneaker")).toBeInTheDocument();
+    expect(screen.getByText("View More")).toBeInTheDocument();
+  });
 
-//     expect(
-//       screen
-//         .getByText("View More")
-//         .toHaveAttribute("href", "http://localhost:8080/#")
-//     );
+//   xit("When Add Sneaker is clicked and a user isn't logged in, they are redirected to login ", async () => {
+//     const button = await getByText('Add Sneaker');
+//     fireEvent.click(button)
 //   });
 
-  // it("When Add Sneaker is clicked, .... ", () => {
+//   xit("When Add Sneaker is clicked and a user is logged in, the wishlist increments by 1", async () => {
+//     const button = await getByText("Add Sneaker");
+//   });
 
-  // });
-
-  // it("When View More is clicked, redirected to specific sneaker page ", () => {
-
-  // });
+//   xit("When View More is clicked, redirected to specific sneaker page ", () => {
+//   });
 });
