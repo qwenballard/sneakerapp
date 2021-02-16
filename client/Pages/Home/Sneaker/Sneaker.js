@@ -30,10 +30,10 @@ const Sneaker = (props) => {
            Add Sneaker
          </span>
          <br></br>
-         <Link className="addSneakerText" to={`/sneakers/${id}`}>
-           View More
-         </Link>
        </a>
+       <Link className="viewMoreText" to={`/sneakers/${id}`}>
+         View More
+       </Link>
      </footer>
    </div>
  );   
