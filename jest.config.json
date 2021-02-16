@@ -1,0 +1,14 @@
+{
+  "testRegex": "((\\.|/*.)(test))\\.js?$",
+  "moduleNameMapper": {
+    "^.+\\.(css|less|scss)$": "babel-jest",
+    "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+    "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+    "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+  },
+  "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
+  "moduleFileExtensions": ["js", "jsx", "json"],
+  "moduleDirectories": ["node_modules", "src", "assets"],
+  "verbose": true,
+  "bail": true
+}

@@ -10,11 +10,11 @@ const Sneaker = (props) => {
     const showSneakerImage = (media.imageUrl !== null ? media.imageUrl : noImage );
  return (
    <div className="sneakerContainer">
-     <header className="sneakerTitle">
+     <div className="sneakerTitle">
        <p>
          {title} ({year})
        </p>
-     </header>
+     </div>
      <div>
        <div className="sneakerImage">
          <img src={showSneakerImage} alt={title} />
@@ -25,15 +25,15 @@ const Sneaker = (props) => {
      </div>
      <footer className="addSneaker">
        <a href="#">
-         <i class="fas fa-plus"></i>
+         <i className="fas fa-plus"></i>
          <span className="addSneakerText" onClick={() => addSneaker(id)}>
            Add Sneaker
          </span>
          <br></br>
        </a>
-       <Link className="viewMoreText" to={`/sneakers/${id}`}>
+       <a className="viewMoreText" to={`/sneakers/${id}`}>
          View More
-       </Link>
+       </a>
      </footer>
    </div>
  );   
